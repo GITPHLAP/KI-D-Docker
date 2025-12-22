@@ -1,0 +1,40 @@
+
+services:
+  adguardhome:
+    image: adguard/adguardhome
+    container_name: adguard
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.adguard.entrypoints=websecure"
+      - "traefik.http.routers.adguard.tls=true"
+      - "traefik.http.routers.adguard.tls.certresolver=le"
+      - "traefik.http.services.adguard.loadbalancer.server.port=80"
+    ports:
+      # Map container ports to host ports
+      # Expose port 53 on TCP and UDP for DNS queries
+      - 53:53/tcp
+      - 53:53/udp
+      - 67:67/udp
+      - 8080:80/tcp
+      - 3080:3000/tcp
+      - 4443:443/tcp
+      - 4443:443/udp
+      - 853:853/tcp
+      - 784:784/udp
+      - 853:853/udp
+      - 8853:8853/udp
+      - 5443:5443/tcp
+      - 5443:5443/udp
+    volumes:
+      - work:/opt/adguardhome/work
+      - confdir:/opt/adguardhome/conf
+    networks:
+      proxy:
+        ipv4_address: 172.77.0.5
+volumes:
+  work:
+  confdir:
+networks:
+  proxy:
+    external: true

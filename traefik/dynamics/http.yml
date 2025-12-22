@@ -1,0 +1,30 @@
+http:
+  serversTransports:
+    proxmoxSkipVerify:
+      insecureSkipVerify: true
+  routers:
+    ha:
+      entryPoints:
+        - websecure
+      rule: 'Host(`ha.{{ env "ROOT_DOMAIN" }}`)'
+      tls:
+        certresolver: le
+        
+      service: ha
+    proxmox:
+      entryPoints:
+        - websecure
+      rule: 'Host(`proxmox.{{ env "ROOT_DOMAIN" }}`)'
+      tls:
+        certresolver: le
+      service: proxmox
+  services:
+    ha:
+      loadBalancer:
+        servers:
+          - url: '{{ env "HA_IP" }}'
+    proxmox:
+      loadBalancer:
+        serversTransport: proxmoxSkipVerify
+        servers:
+          - url: '{{ env "PROXMOX_IP" }}'

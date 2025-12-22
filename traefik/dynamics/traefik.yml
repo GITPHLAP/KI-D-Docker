@@ -1,0 +1,41 @@
+api:
+  dashboard: true
+  insecure: false
+  debug: false
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+          permanent: true
+  websecure:
+    address: ":443"
+    http:
+      tls: 
+        certresolver: le
+providers:
+  docker:
+    exposedByDefault: false
+    network: proxy
+    defaultRule: "Host(`{{ .ContainerName }}.viften.ki-d.dk`)"
+  file:
+    # watch: true
+    filename: /etc/traefik/http.yml
+certificatesResolvers:
+  le:
+    acme:
+      email: kjedtoft@gmail.com
+      storage: /certs/acme.json
+      dnsChallenge:
+        provider: cloudflare
+        propagation:
+          delayBeforeChecks: 10
+accessLog:
+  fields:
+    # Keep all the fields by default
+    defaultMode: keep
+log: 
+  level: INFO

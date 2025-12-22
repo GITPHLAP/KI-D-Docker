@@ -1,0 +1,43 @@
+services:
+  budget:
+    image: ghcr.io/gitphlap/kidl-budget:latest
+    container_name: budget
+    ports:
+      - 3003:80
+    environment:
+      - MY_APP_API_URL=https://budget-api.viften.ki-d.dk
+      - MY_APP_API_PORT=${MY_APP_API_PORT}
+    networks:
+      proxy:
+        ipv4_address: 172.77.0.7
+    depends_on:
+      - budget-api
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.budget.entrypoints=websecure"
+      - "traefik.http.routers.budget.tls=true"
+      - "traefik.http.routers.budget.tls.certresolver=le"
+      - "traefik.http.services.budget.loadbalancer.server.port=80"
+  budget-api:
+    image: ghcr.io/gitphlap/kidl-api:latest
+    container_name: budget-api
+    ports:
+      - 5003:8080
+    environment:
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_NAME=${DATABASE_NAME}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.budget-api.entrypoints=websecure"
+      - "traefik.http.routers.budget-api.tls=true"
+      - "traefik.http.routers.budget-api.tls.certresolver=le"
+      - "traefik.http.services.budget-api.loadbalancer.server.port=8080"
+    networks:
+      proxy:
+        ipv4_address: 172.77.0.8
+networks:
+  proxy:
+    external: true
+
