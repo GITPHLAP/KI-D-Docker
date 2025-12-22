@@ -23,7 +23,7 @@ services:
       - /mnt/samba:/storage
       - samba-config:/etc/samba
     restart: always
-    depebds_on:
+    depends_on:
       - config-init
 volumes:
   samba-config:
