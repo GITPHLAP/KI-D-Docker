@@ -6,11 +6,9 @@ services:
       - 445:445
     volumes:
       - /mnt/samba:/storage
-      - ./configs/users.template:/configs/users.template:ro
-      - ./configs:/etc/samba
-      - ./entrypoint.sh:/entrypoint.sh:ro
+      - container-configs/samba/users.conf:/etc/samba/users.conf
+      - ./configs/smb.conf:/etc/samba/smb.conf
     restart: always
-    entrypoint: ["/entrypoint.sh"]
 volumes:
   container-configs:
     external: true
