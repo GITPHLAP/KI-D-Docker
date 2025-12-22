@@ -1,7 +1,7 @@
 services:
   samba:
     image: dockurr/samba
-    container_name: samba
+    container_name: samba-test
     ports:
       - 445:445
     volumes:
