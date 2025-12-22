@@ -1,0 +1,29 @@
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg16
+    restart: unless-stopped
+    ports:
+      - 54321:5432
+    environment:
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    volumes:
+      - timescaledb-data:/var/lib/postgresql/data
+    networks:
+      proxy:
+        ipv4_address: 172.77.0.6
+  flyway:
+    image: ghcr.io/gitphlap/kidl-db:latest
+    command: migrate
+    environment:
+      FLYWAY_USER: ${DATABASE_USER}
+      FLYWAY_PASSWORD: ${DATABASE_PASSWORD}
+      FLYWAY_URL: jdbc:postgresql://timescaledb:5432/${DATABASE_NAME}
+    networks:
+      proxy:
+        ipv4_address: 172.77.0.10
+networks:
+  proxy:
+    external: true
+volumes:
+  timescaledb-data:
