@@ -1,4 +1,18 @@
 services:
+  config-init:
+    image: alpine
+    command: >
+      sh -c "apk add gettext &&
+             envsubst < /templates/users.conf > /config/users.conf" &&
+             cp /templates/smb.conf /config/smb.conf
+    volumes:
+      - ./configs:/templates
+      - samba-config:/config
+    environment:
+      PASS_1: ${PASS_1}
+      PASS_2: ${PASS_2}
+      PASS_3: ${PASS_3}
+      PASS_4: ${PASS_4}
   samba:
     image: dockurr/samba
     container_name: samba-test
@@ -6,9 +20,9 @@ services:
       - 445:445
     volumes:
       - /mnt/samba:/storage
-      - container-configs/samba/users.conf:/etc/samba/users.conf
-      - ./configs/smb.conf:/etc/samba/smb.conf
+      - samba-config:/etc/samba
     restart: always
 volumes:
   container-configs:
     external: true
+  samba-config:
