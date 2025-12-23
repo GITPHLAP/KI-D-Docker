@@ -15,7 +15,7 @@ services:
       - "homepage.href=https://adguard.viften.ki-d.dk"
       - homepage.widget.type=adguard
       - homepage.widget.url=https://adguard.viften.ki-d.dk/login.html
-      - homepage.widget.username=admin
+      - homepage.widget.username=phlap
       - homepage.widget.password=${ADGUARD_PASSWORD}
     ports:
       # Map container ports to host ports
