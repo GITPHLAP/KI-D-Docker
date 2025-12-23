@@ -13,7 +13,8 @@ services:
       - ROOT_DOMAIN=${ROOT_DOMAIN}
       - PROXMOX_IP=${PROXMOX_IP}
     networks:
-      - proxy
+      proxy:
+        ipv4_address: 172.77.0.2
     labels:
       - traefik.enable=true
       - traefik.http.routers.mydashboard.service=api@internal
