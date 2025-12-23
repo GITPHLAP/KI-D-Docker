@@ -32,9 +32,34 @@ services:
     networks:
       proxy:
         ipv4_address: 172.77.0.5
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    environment:
+      - TZ=Europe/Copenhagen
+      - FTLCONF_webserver_api_password=${PIHOLE_PASSWORD}
+      # Configure pihole FTL local IP address. Replace 192.168.1.18 with IP address of docker host.
+      # - FTLCONF_LOCAL_IPV4=192.168.1.18
+      # - DNSSEC=true
+      # - DNSMASQ_LISTENING=single
+      # # Configure unbound as upstream DNS of pihole. Replace 172.18.0.1 with gateway IP address of docker network. run docker network ls to find network name. run docker inspect <network name> to find getway IP address.
+      # - PIHOLE_DNS_=172.18.0.1#5335
+    ports:
+      - 5353:53/tcp
+      - 5353:53/udp
+      - 83:80
+    volumes:
+      - pihole_pihole:/etc/pihole
+    restart: unless-stopped
+    networks:
+      proxy:
+        ipv4_address: 172.77.0.4
 volumes:
   work:
   confdir:
+  pihole_pihole:
 networks:
   proxy:
     external: true
+
+
