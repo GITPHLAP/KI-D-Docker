@@ -10,6 +10,13 @@ services:
       - "traefik.http.routers.adguard.tls=true"
       - "traefik.http.routers.adguard.tls.certresolver=le"
       - "traefik.http.services.adguard.loadbalancer.server.port=80"
+      - "homepage.group=Network"
+      - "homepage.name=AdGuard"
+      - "homepage.href=https://adguard.viften.ki-d.dk"
+      - homepage.widget.type=adguard
+      - homepage.widget.url=https://adguard.viften.ki-d.dk/login.html
+      - homepage.widget.username=admin
+      - homepage.widget.password=${ADGUARD_PASSWORD}
     ports:
       # Map container ports to host ports
       # Expose port 53 on TCP and UDP for DNS queries
@@ -41,6 +48,13 @@ services:
       - "traefik.http.routers.pihole.tls=true"
       - "traefik.http.routers.pihole.tls.certresolver=le"
       - "traefik.http.services.pihole.loadbalancer.server.port=80"
+      - homepage.group=Network
+      - homepage.name=Pi-hole
+      - homepage.href=https://pihole.viften.ki-d.dk
+      - homepage.widget.type=pihole
+      - homepage.widget.url=https://pihole.viften.ki-d.dk/admin/login
+      - homepage.widget.version=6
+      - homepage.widget.key=${PIHOLE_PASSWORD}
     environment:
       - TZ=Europe/Copenhagen
       - FTLCONF_webserver_api_password=${PIHOLE_PASSWORD}

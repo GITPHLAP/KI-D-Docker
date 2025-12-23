@@ -1,0 +1,14 @@
+- Group A:
+  - Home Assistant:
+      href: "https://ha.viften.ki-d.dk"
+      widget:
+        type: homeassistant
+        url: https://ha.viften.ki-d.dk
+        key: $HA_TOKEN
+  - Proxmox:
+      href: "https://proxmox.viften.ki-d.dk"
+      widget:
+        type: proxmox
+        url: https://proxmox.viften.ki-d.dk
+        username: root
+        password: $PROXMOX_PASSWORD
