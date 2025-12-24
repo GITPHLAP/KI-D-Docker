@@ -14,7 +14,7 @@ services:
       - "homepage.name=AdGuard"
       - "homepage.href=https://adguard.viften.ki-d.dk"
       - homepage.widget.type=adguard
-      - homepage.widget.url=https://adguard.viften.ki-d.dk/login.html
+      - homepage.widget.url=https://adguard.viften.ki-d.dk
       - homepage.widget.username=phlap
       - homepage.widget.password=${ADGUARD_PASSWORD}
     ports:
@@ -52,7 +52,7 @@ services:
       - homepage.name=Pi-hole
       - homepage.href=https://pihole.viften.ki-d.dk
       - homepage.widget.type=pihole
-      - homepage.widget.url=https://pihole.viften.ki-d.dk/admin/login
+      - homepage.widget.url=https://pihole.viften.ki-d.dk
       - homepage.widget.version=6
       - homepage.widget.key=${PIHOLE_PASSWORD}
     environment:
