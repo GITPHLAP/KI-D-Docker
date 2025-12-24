@@ -13,7 +13,7 @@ services:
       - "homepage.group=Network"
       - "homepage.name=AdGuard"
       - "homepage.href=https://adguard.viften.ki-d.dk"
-      - "homepage.icon=si-adguard"
+      - "homepage.icon=si-adguard-#68BC71"
       - homepage.widget.type=adguard
       - homepage.widget.url=https://adguard.viften.ki-d.dk
       - homepage.widget.username=phlap
@@ -52,7 +52,7 @@ services:
       - homepage.group=Network
       - homepage.name=Pi-hole
       - homepage.href=https://pihole.viften.ki-d.dk
-      - "homepage.icon=si-pihole"
+      - "homepage.icon=si-pihole-#96060C"
       - homepage.widget.type=pihole
       - homepage.widget.url=https://pihole.viften.ki-d.dk
       - homepage.widget.version=6

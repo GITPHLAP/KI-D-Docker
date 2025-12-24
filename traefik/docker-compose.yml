@@ -26,7 +26,7 @@ services:
       - "homepage.group=Platform"
       - "homepage.name=Traefik"
       - "homepage.href=https://traefik.viften.ki-d.dk"
-      - "homepage.icon=si-traefik"
+      - "homepage.icon=si-traefikproxy-#24A1C1"
       - homepage.widget.type=traefik
       - homepage.widget.url=https://traefik.viften.ki-d.dk
       - homepage.widget.username=admin
