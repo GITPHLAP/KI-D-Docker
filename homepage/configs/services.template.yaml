@@ -1,14 +1,31 @@
 - Group A:
   - Home Assistant:
       href: "https://ha.viften.ki-d.dk"
+      icon: si:homeassistant
       widget:
         type: homeassistant
         url: https://ha.viften.ki-d.dk
         key: $HA_TOKEN
   - Proxmox:
       href: "https://proxmox.viften.ki-d.dk"
+      icon: si:proxmox
       widget:
         type: proxmox
         url: https://proxmox.viften.ki-d.dk
         username: $PROXMOX_TOKEN_ID
         password: $PROXMOX_TOKEN_SECRET
+  - Philip Calendar:
+      icon: si:googlecalendar
+      widget:
+        type: calendar
+        view: monthly # optional - possible values monthly, agenda
+        maxEvents: 10 
+        showTime: true 
+        timezone: Europe/Copenhagen
+        integrations: # optional
+          - type: ical # Show calendar events from another service
+            url: $PHILIP_SECRET_ICAL # URL with calendar events
+            name: Philip # required - name for these calendar events
+            color: orange # optional - defaults to pre-defined color for the service (zinc for ical)
+            params: # optional - additional params for the service
+              showName: true # optional - show name before event title in event line - defaults to false
