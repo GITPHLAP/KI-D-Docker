@@ -13,6 +13,7 @@ services:
       HA_TOKEN: ${HA_TOKEN}
       PROXMOX_TOKEN_ID: ${PROXMOX_TOKEN_ID}
       PROXMOX_TOKEN_SECRET: ${PROXMOX_TOKEN_SECRET}
+      PHILIP_SECRET_ICAL: ${PHILIP_SECRET_ICAL}
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
