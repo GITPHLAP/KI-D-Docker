@@ -1,21 +1,21 @@
 - Group A:
   - Home Assistant:
       href: "https://ha.viften.ki-d.dk"
-      icon: si:homeassistant
+      icon: si-homeassistant
       widget:
         type: homeassistant
         url: https://ha.viften.ki-d.dk
         key: $HA_TOKEN
   - Proxmox:
       href: "https://proxmox.viften.ki-d.dk"
-      icon: si:proxmox
+      icon: si-proxmox
       widget:
         type: proxmox
         url: https://proxmox.viften.ki-d.dk
         username: $PROXMOX_TOKEN_ID
         password: $PROXMOX_TOKEN_SECRET
   - Philip Calendar:
-      icon: si:googlecalendar
+      icon: si-googlecalendar
       widget:
         type: calendar
         view: monthly # optional - possible values monthly, agenda

@@ -21,7 +21,7 @@ services:
       - "homepage.group=Apps"
       - "homepage.name=Budget"
       - "homepage.href=https://budget.viften.ki-d.dk"
-      - "homepage.icon=mdi:cash-multiple"
+      - "homepage.icon=mdi-cash-multiple"
   budget-api:
     image: ghcr.io/gitphlap/kidl-api:latest
     container_name: budget-api
