@@ -22,8 +22,9 @@ services:
       - config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock:ro # (optional) For docker integrations
     environment:
-      HOMEPAGE_ALLOWED_HOSTS: ${HOMEPAGE_ALLOWED_HOSTS} # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
+      HOMEPAGE_ALLOWED_HOSTS: viften.ki-d.dk # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
     restart: unless-stopped
+    dns: 172.77.0.5
     networks:
       proxy:
         ipv4_address: 172.77.0.6
