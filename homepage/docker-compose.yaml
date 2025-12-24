@@ -11,7 +11,8 @@ services:
       - config:/config
     environment:
       HA_TOKEN: ${HA_TOKEN}
-      PROXMOX_PASSWORD: ${PROXMOX_PASSWORD}
+      PROXMOX_TOKEN_ID: ${PROXMOX_TOKEN_ID}
+      PROXMOX_TOKEN_SECRET: ${PROXMOX_TOKEN_SECRET}
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
