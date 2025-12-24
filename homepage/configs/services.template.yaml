@@ -10,5 +10,5 @@
       widget:
         type: proxmox
         url: https://proxmox.viften.ki-d.dk
-        username: root
-        password: $PROXMOX_PASSWORD
+        username: $PROXMOX_TOKEN_ID
+        password: $PROXMOX_TOKEN_SECRET

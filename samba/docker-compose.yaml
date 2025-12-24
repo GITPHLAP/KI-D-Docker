@@ -24,6 +24,7 @@ services:
       - samba-config:/etc/samba
     restart: always
     depends_on:
-      - config-init
+      config-init:
+        condition: service_completed_successfully
 volumes:
   samba-config:
