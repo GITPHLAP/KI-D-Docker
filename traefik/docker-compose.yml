@@ -12,6 +12,7 @@ services:
       - HA_IP=${HA_IP}
       - ROOT_DOMAIN=${ROOT_DOMAIN}
       - PROXMOX_IP=${PROXMOX_IP}
+      - PROXMOX2_IP=${PROXMOX2_IP}
     networks:
       proxy:
         ipv4_address: 172.77.0.2
