@@ -14,6 +14,14 @@
         url: https://proxmox.viften.ki-d.dk
         username: $PROXMOX_TOKEN_ID
         password: $PROXMOX_TOKEN_SECRET
+  - Proxmox2:
+      href: "https://proxmox2.viften.ki-d.dk"
+      icon: si-proxmox-#E57000
+      widget:
+        type: proxmox
+        url: https://proxmox2.viften.ki-d.dk
+        username: $PROXMOX2_TOKEN_ID
+        password: $PROXMOX2_TOKEN_SECRET
   - Philip Calendar:
       icon: si-googlecalendar-#4285F4
       widget:

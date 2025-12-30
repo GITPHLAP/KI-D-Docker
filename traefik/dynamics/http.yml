@@ -18,6 +18,13 @@ http:
       tls:
         certresolver: le
       service: proxmox
+    proxmox2:
+      entryPoints:
+        - websecure
+      rule: 'Host(`proxmox2.{{ env "ROOT_DOMAIN" }}`)'
+      tls:
+        certresolver: le
+      service: proxmox2
   services:
     ha:
       loadBalancer:
@@ -28,3 +35,8 @@ http:
         serversTransport: proxmoxSkipVerify
         servers:
           - url: '{{ env "PROXMOX_IP" }}'
+    proxmox2:
+      loadBalancer:
+        serversTransport: proxmoxSkipVerify
+        servers:
+          - url: '{{ env "PROXMOX2_IP" }}'
