@@ -1,0 +1,26 @@
+services:
+  grocy:
+    image: lscr.io/linuxserver/grocy:latest
+    container_name: grocy
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Europe/Copenhagen
+    volumes:
+      - grozy-config:/config
+    restart: unless-stopped
+    networks:
+      proxy:
+        ipv4_address: 172.77.0.11
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.grozy.entrypoints=websecure"
+      - "traefik.http.routers.grozy.tls=true"
+      - "traefik.http.routers.grozy.tls.certresolver=le"
+      - "traefik.http.services.grozy.loadbalancer.server.port=80"
+      - "homepage.group=Apps"
+      - "homepage.name=Grocy"
+      - "homepage.href=https://grocy.viften.ki-d.dk"
+      - "homepage.icon=mdi-checkbox-marked-circle-auto-outline-#337ab7"
+volumes:
+  grozy-config:
