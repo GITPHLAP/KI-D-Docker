@@ -24,3 +24,6 @@ services:
       - "homepage.icon=mdi-checkbox-marked-circle-auto-outline-#337ab7"
 volumes:
   grozy-config:
+networks:
+  proxy:
+    external: true
