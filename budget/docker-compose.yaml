@@ -25,7 +25,7 @@ services:
       - sablier.enable=true
       - sablier.group=budget
       - traefik.docker.allownonrunning=true
-      - traefik.http.routers.budget.middlewares=budget-sablier
+      - traefik.http.routers.budget.middlewares=budget-sablier@file
   budget-api:
     image: ghcr.io/gitphlap/kidl-api:latest
     container_name: budget-api
@@ -45,7 +45,7 @@ services:
       - sablier.enable=true
       - sablier.group=budget
       - traefik.docker.allownonrunning=true
-      - traefik.http.routers.budget.middlewares=budget-sablier
+      - traefik.http.routers.budget.middlewares=budget-sablier@file
     networks:
       proxy:
         ipv4_address: 172.77.0.8

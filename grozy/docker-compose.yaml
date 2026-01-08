@@ -25,7 +25,7 @@ services:
       - sablier.enable=true
       - sablier.group=grozy
       - traefik.docker.allownonrunning=true
-      - traefik.http.routers.grozy.middlewares=grozy-sablier
+      - traefik.http.routers.grozy.middlewares=grozy-sablier@file
 volumes:
   grozy-config:
 networks:

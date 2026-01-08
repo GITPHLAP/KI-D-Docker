@@ -47,7 +47,7 @@ services:
       - sablier.enable=true
       - sablier.group=homepage
       - traefik.docker.allownonrunning=true
-      - traefik.http.routers.homepage.middlewares=homepage-sablier
+      - traefik.http.routers.homepage.middlewares=homepage-sablier@file
 
 volumes:
   config:
