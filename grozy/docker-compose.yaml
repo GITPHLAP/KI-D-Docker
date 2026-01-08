@@ -22,6 +22,10 @@ services:
       - "homepage.name=Grocy"
       - "homepage.href=https://grocy.viften.ki-d.dk"
       - "homepage.icon=mdi-checkbox-marked-circle-auto-outline-#337ab7"
+      - sablier.enable=true
+      - sablier.group=grozy
+      - traefik.docker.allownonrunning=true
+      - traefik.http.routers.grozy.middlewares=grozy-sablier
 volumes:
   grozy-config:
 networks:

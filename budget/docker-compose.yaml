@@ -22,6 +22,10 @@ services:
       - "homepage.name=Budget"
       - "homepage.href=https://budget.viften.ki-d.dk"
       - "homepage.icon=mdi-cash-multiple-#34A853"
+      - sablier.enable=true
+      - sablier.group=budget
+      - traefik.docker.allownonrunning=true
+      - traefik.http.routers.budget.middlewares=budget-sablier
   budget-api:
     image: ghcr.io/gitphlap/kidl-api:latest
     container_name: budget-api
@@ -38,6 +42,10 @@ services:
       - "traefik.http.routers.budget-api.tls=true"
       - "traefik.http.routers.budget-api.tls.certresolver=le"
       - "traefik.http.services.budget-api.loadbalancer.server.port=8080"
+      - sablier.enable=true
+      - sablier.group=budget
+      - traefik.docker.allownonrunning=true
+      - traefik.http.routers.budget.middlewares=budget-sablier
     networks:
       proxy:
         ipv4_address: 172.77.0.8

@@ -40,3 +40,40 @@ http:
         serversTransport: proxmoxSkipVerify
         servers:
           - url: '{{ env "PROXMOX2_IP" }}'
+  middlewares:
+    homepage-sablier:
+      plugin:
+        sablier:
+          sablierUrl: http://sablier:10000
+          group: homepage
+          sessionDuration: 20m
+          ignoreUserAgent: curl
+          dynamic:
+            displayName: Homepage
+            showDetails: true
+            theme: hacker-terminal
+            refreshFrequency: 5s
+    budget-sablier:
+      plugin:
+        sablier:
+          sablierUrl: http://sablier:10000
+          group: budget
+          sessionDuration: 2h
+          ignoreUserAgent: curl
+          dynamic:
+            displayName: Budget
+            showDetails: true
+            theme: hacker-terminal
+            refreshFrequency: 5s
+    grozy-sablier:
+      plugin:
+        sablier:
+          sablierUrl: http://sablier:10000
+          group: grozy
+          sessionDuration: 40m
+          ignoreUserAgent: curl
+          dynamic:
+            displayName: Grozy
+            showDetails: true
+            theme: hacker-terminal
+            refreshFrequency: 5s
