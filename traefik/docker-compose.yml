@@ -51,7 +51,7 @@ services:
       - '/var/run/docker.sock:/var/run/docker.sock'
     networks:
       proxy:
-        ipv4_address: 172.77.0.3
+        ipv4_address: 172.77.0.12
 volumes:
   certs:
     name: certs
