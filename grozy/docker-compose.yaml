@@ -6,6 +6,7 @@ services:
       - TZ=Europe/Copenhagen
     volumes:
       - grocy-config:/config
+      - grozy-stack_grozy-config:/config
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/"]
       interval: 30s
@@ -31,7 +32,8 @@ services:
       - traefik.docker.allownonrunning=true
       - traefik.http.routers.grocy.middlewares=grocy-sablier@file
 volumes:
-  grocy-config:
+  grozy-stack_grozy-config:
+    external: true
 networks:
   proxy:
     external: true
