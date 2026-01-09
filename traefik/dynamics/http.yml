@@ -65,15 +65,15 @@ http:
             showDetails: true
             theme: hacker-terminal
             refreshFrequency: 5s
-    grozy-sablier:
+    grocy-sablier:
       plugin:
         sablier:
           sablierUrl: http://sablier:10000
-          group: grozy
+          group: grocy
           sessionDuration: 40m
           ignoreUserAgent: curl
           dynamic:
-            displayName: Grozy
+            displayName: Grocy
             showDetails: true
             theme: hacker-terminal
             refreshFrequency: 5s
