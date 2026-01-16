@@ -49,6 +49,7 @@ services:
       - --provider.name=docker
     volumes:
       - '/var/run/docker.sock:/var/run/docker.sock'
+    restart: unless-stopped
     networks:
       proxy:
         ipv4_address: 172.77.0.12
