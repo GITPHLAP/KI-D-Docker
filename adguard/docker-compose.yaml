@@ -40,11 +40,6 @@ services:
     networks:
       proxy:
         ipv4_address: 172.77.0.5
-    dns:
-      edns_client_subnet:
-        enabled: true
-        use_custom: false
-        custom_ip: ""
   pihole:
     image: pihole/pihole:latest
     container_name: pihole
