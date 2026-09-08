@@ -40,6 +40,11 @@ services:
     networks:
       proxy:
         ipv4_address: 172.77.0.5
+    dns:
+      edns_client_subnet:
+        enabled: true
+        use_custom: false
+        custom_ip: ""
   pihole:
     image: pihole/pihole:latest
     container_name: pihole
@@ -60,6 +65,7 @@ services:
     environment:
       - TZ=Europe/Copenhagen
       - FTLCONF_webserver_api_password=${PIHOLE_PASSWORD}
+      - FTLCONF_dns_EDNS0ECS=true
       # Configure pihole FTL local IP address. Replace 192.168.1.18 with IP address of docker host.
       # - FTLCONF_LOCAL_IPV4=192.168.1.18
       # - DNSSEC=true
